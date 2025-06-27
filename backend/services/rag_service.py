@@ -3,18 +3,19 @@ from loguru import logger
 import json
 from datetime import datetime
 
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from config import TOP_K_SIMILAR_INCIDENTS, CONFIDENCE_THRESHOLD
-from backend.utils.vectordb import VectorDBManager
+from ..utils.vectordb import VectorDBManager
 
 class RAGService:
     def __init__(self):
         self.vector_db = VectorDBManager()
+        self.top_k_similar_incidents = 5
+        self.confidence_threshold = 0.7
     
-    def find_similar_incidents(self, query_text: str, data_type: Optional[str] = None, k: int = TOP_K_SIMILAR_INCIDENTS) -> List[Dict[str, Any]]:
+    def find_similar_incidents(self, query_text: str, data_type: Optional[str] = None, k: int = None) -> List[Dict[str, Any]]:
         """Find similar incidents from vector database"""
+        if k is None:
+            k = self.top_k_similar_incidents
+            
         try:
             # Search for similar documents
             similar_docs = self.vector_db.search_similar(
@@ -26,7 +27,7 @@ class RAGService:
             # Filter by confidence threshold
             filtered_docs = [
                 doc for doc in similar_docs 
-                if doc.get('similarity_score', 0) >= CONFIDENCE_THRESHOLD
+                if doc.get('similarity_score', 0) >= self.confidence_threshold
             ]
             
             # Format for RCA analysis
@@ -44,7 +45,7 @@ class RAGService:
                 }
                 incidents.append(incident)
             
-            logger.info(f"Found {len(incidents)} similar incidents with confidence >= {CONFIDENCE_THRESHOLD}")
+            logger.info(f"Found {len(incidents)} similar incidents with confidence >= {self.confidence_threshold}")
             return incidents
             
         except Exception as e:
@@ -105,7 +106,7 @@ class RAGService:
             sorted_incidents = sorted(unique_incidents, key=lambda x: x['similarity_score'], reverse=True)
             
             # Return top incidents
-            return sorted_incidents[:TOP_K_SIMILAR_INCIDENTS]
+            return sorted_incidents[:self.top_k_similar_incidents]
             
         except Exception as e:
             logger.error(f"Failed to get relevant context: {str(e)}")
@@ -179,8 +180,8 @@ class RAGService:
                 "total_incidents": stats.get("total_documents", 0),
                 "collection_name": stats.get("collection_name", "unknown"),
                 "embedding_model": stats.get("embedding_model", "unknown"),
-                "confidence_threshold": CONFIDENCE_THRESHOLD,
-                "top_k_results": TOP_K_SIMILAR_INCIDENTS
+                "confidence_threshold": self.confidence_threshold,
+                "top_k_results": self.top_k_similar_incidents
             }
         except Exception as e:
             logger.error(f"Failed to get knowledge base stats: {str(e)}")
