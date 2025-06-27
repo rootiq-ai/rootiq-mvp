@@ -5,11 +5,7 @@ import time
 
 from .llm_service import LLMService
 from .rag_service import RAGService
-
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from backend.models.schemas import RCARequest, RCAResponse, Evidence, RelatedIncident, RemediationSuggestion, ConfidenceLevel
+from ..models.schemas import RCARequest, RCAResponse, Evidence, RelatedIncident, RemediationSuggestion, ConfidenceLevel
 
 class RCAService:
     def __init__(self):
