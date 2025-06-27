@@ -4,15 +4,11 @@ from typing import Dict, Any, Optional
 from loguru import logger
 import time
 
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from config import OLLAMA_MODEL, OLLAMA_BASE_URL, MAX_CONTEXT_LENGTH
-
 class LLMService:
     def __init__(self):
-        self.client = ollama.Client(host=OLLAMA_BASE_URL)
-        self.model = OLLAMA_MODEL
+        self.client = ollama.Client(host="http://localhost:11434")
+        self.model = "llama3"
+        self.max_context_length = 4000
         
     def is_available(self) -> bool:
         """Check if Ollama service is available"""
@@ -80,8 +76,8 @@ class LLMService:
         context = "\n\n".join(context_parts)
         
         # Truncate if too long
-        if len(context) > MAX_CONTEXT_LENGTH:
-            context = context[:MAX_CONTEXT_LENGTH] + "... [truncated]"
+        if len(context) > self.max_context_length:
+            context = context[:self.max_context_length] + "... [truncated]"
         
         return context
     
