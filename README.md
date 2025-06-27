@@ -20,39 +20,6 @@ This platform is **fully compatible with Python 3.12.3** and has been thoroughly
 - **Knowledge Base**: Persistent storage of incidents for improved analysis over time
 - **Easy Deployment**: One-command setup and startup scripts
 
-## 🏗️ Architecture
-
-```
-rca-platform/
-├── __init__.py
-├── config.py                  # Configuration settings
-├── requirements.txt           # Python 3.12.3 compatible dependencies
-├── setup.sh                  # Initial setup script
-├── start_all.sh              # Start all services (recommended)
-├── stop_all.sh               # Stop all services
-├── run_backend.sh            # Start backend only
-├── run_frontend.sh           # Start frontend only
-├── run_ollama.sh             # Start Ollama only
-├── README.md
-├── frontend/                 # Streamlit UI
-│   └── streamlit_app.py
-├── backend/                  # FastAPI Backend
-│   ├── main.py              # Main application entry
-│   ├── models/              # Pydantic schemas
-│   ├── services/            # Core business logic
-│   │   ├── llm_service.py   # LLaMA3/Ollama integration
-│   │   ├── rag_service.py   # RAG and vector search
-│   │   └── rca_service.py   # Main RCA orchestration
-│   ├── api/                 # API endpoints
-│   └── utils/               # Utilities (VectorDB)
-├── data/                    # Data storage
-│   └── chroma_db/          # ChromaDB vector database
-└── logs/                   # Application logs
-    ├── ollama.log
-    ├── backend.log
-    └── frontend.log
-```
-
 ## 🛠️ Technology Stack
 
 - **Frontend**: Streamlit
@@ -76,7 +43,7 @@ rca-platform/
 ### 1. Setup
 ```bash
 # Clone or create the project directory
-mkdir rca-platform && cd rca-platform
+git clone 
 
 # Copy all the provided files to their respective locations
 # (Use the file structure shown above)
