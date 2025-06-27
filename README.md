@@ -216,7 +216,7 @@ Actionable steps prioritized by urgency:
 **1. "Import Error" or "Module Not Found"**
 ```bash
 # Ensure you're in the project root directory
-cd rca-platform
+cd rootiq
 
 # Check Python version
 python3 --version  # Should be 3.12.3
