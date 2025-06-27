@@ -42,7 +42,7 @@ class RelatedIncident(BaseModel):
 class RemediationSuggestion(BaseModel):
     title: str
     description: str
-    priority: str = Field(regex="^(low|medium|high|critical)$")
+    priority: str = Field(pattern="^(low|medium|high|critical)$")
     estimated_time: Optional[str] = None
     steps: List[str] = []
 
