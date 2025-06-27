@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 # Base directories
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.absolute()
 DATA_DIR = BASE_DIR / "data"
 CHROMA_DB_DIR = DATA_DIR / "chroma_db"
 
