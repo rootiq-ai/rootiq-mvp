@@ -1,6 +1,7 @@
 # 🔍 RootIQ-Generative AI-Driven Observability for Automated Root Cause Analysis in Modern IT Systems
+![Screenshot 2025-06-27 at 5 44 01 PM](https://github.com/user-attachments/assets/b39f7871-f5a8-45b1-8783-adc83d287f9e)
 
-![Screenshot 2025-06-27 at 5 32 19 PM](https://github.com/user-attachments/assets/79693aff-d51c-4e5a-b5e5-bf67bf30afda)
+
 
 A comprehensive MVP solution that leverages LLaMA3 and RAG (Retrieval-Augmented Generation) to automatically analyze logs, metrics, and traces for intelligent root cause analysis.
 
