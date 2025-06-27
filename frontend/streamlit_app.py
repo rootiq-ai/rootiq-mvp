@@ -5,9 +5,12 @@ import time
 from datetime import datetime
 import sys
 import os
+from pathlib import Path
 
 # Add parent directory to path for config
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+parent_dir = Path(__file__).parent.parent
+sys.path.insert(0, str(parent_dir))
+
 from config import API_BASE_URL
 
 # Page configuration
