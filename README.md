@@ -43,10 +43,12 @@ This platform is **fully compatible with Python 3.12.3** and has been thoroughly
 ### 1. Setup
 ```bash
 # Clone or create the project directory
-git clone 
+git clone https://github.com/rootiq-ai/rootiq.git
+cd rootiq
 
-# Copy all the provided files to their respective locations
-# (Use the file structure shown above)
+# Create and activate virtual environment:
+python3 -m venv venv
+source venv/bin/activate
 
 # Make scripts executable
 chmod +x *.sh
