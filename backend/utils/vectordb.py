@@ -1,3 +1,4 @@
+import importlib.util
 import chromadb
 from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
