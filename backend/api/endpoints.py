@@ -1,15 +1,12 @@
-from fastapi import APIRouter, HTTPException, status, Depends
+from fastapi import APIRouter, HTTPException, status
 from typing import List, Dict, Any
 from loguru import logger
 
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from backend.models.schemas import (
+from ..models.schemas import (
     RCARequest, RCAResponse, ObservabilityData, 
     IngestDataRequest, IngestDataResponse, HealthCheck
 )
-from backend.services.rca_service import RCAService
+from ..services.rca_service import RCAService
 
 # Initialize router
 router = APIRouter()
