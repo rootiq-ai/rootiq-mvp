@@ -35,7 +35,7 @@ This platform is **fully compatible with Python 3.12.3** and has been thoroughly
 - **Python 3.12.3** (exactly this version)
 - **pip3** (Python package manager)
 - **curl** (for Ollama installation)
-- **8GB+ RAM** (recommended for LLaMA3)
+- **16GB+ RAM** (recommended for LLaMA3)
 - **10GB+ free disk space** (for LLaMA3 model)
 
 ## 🚀 Quick Start (Recommended)
