@@ -27,12 +27,12 @@ This platform is **fully compatible with Python 3.12.3** and has been thoroughly
 - **LLM**: LLaMA3 via Ollama
 - **Vector Database**: ChromaDB
 - **Embeddings**: SentenceTransformers (all-MiniLM-L6-v2)
-- **Language**: Python 3.12.3
+- **Language**: Python 3.10
 
 ## 📋 Prerequisites
 
 - **Ubuntu** 20.04+ (tested on Ubuntu 22.04)
-- **Python 3.12.3** (exactly this version)
+- **Python 3.10** (exactly this version)
 - **pip3** (Python package manager)
 - **curl** (for Ollama installation)
 - **16GB+ RAM** (recommended for LLaMA3)
@@ -45,7 +45,8 @@ This platform is **fully compatible with Python 3.12.3** and has been thoroughly
 # Clone or create the project directory
 git clone https://github.com/rootiq-ai/rootiq.git
 cd rootiq
-
+sudo apt update
+sudo apt install python3.10-venv
 # Create and activate virtual environment:
 python3 -m venv venv
 source venv/bin/activate
