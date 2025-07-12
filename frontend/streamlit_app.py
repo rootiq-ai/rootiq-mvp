@@ -106,7 +106,7 @@ def perform_rca_analysis(logs, metrics, traces):
         response = requests.post(
             f"{API_BASE_URL}/api/v1/analyze",
             json=payload,
-            timeout=30
+            timeout=90
         )
         
         if response.status_code == 200:
