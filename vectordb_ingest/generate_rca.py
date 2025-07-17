@@ -590,7 +590,7 @@ def main():
     """Example usage of the Alert RCA System"""
     
     # Initialize the system
-    csv_file = "Java_Alerts_RCA_Dataset__10_000_Unique_Entries.csv"
+    csv_file = "Java_Alerts_RCA_Dataset_10_000_Unique_Entries.csv"
     alert_system = AlertRCASystem(
         csv_file_path=csv_file,
         collection_name="java_alerts_chunked",
